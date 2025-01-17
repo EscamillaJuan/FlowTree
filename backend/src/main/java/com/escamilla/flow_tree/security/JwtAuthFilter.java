@@ -1,6 +1,6 @@
 package com.escamilla.flow_tree.security;
 
-import com.escamilla.flow_tree.service.IJwtService;
+import com.escamilla.flow_tree.service.implementation.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,7 +20,7 @@ import java.io.IOException;
 @Component
 @RequiredArgsConstructor
 public class JwtAuthFilter extends OncePerRequestFilter {
-    public final IJwtService jwtService;
+    public final JwtService jwtService;
     private final UserDetailsService userDetailsService;
 
     @Override
