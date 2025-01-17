@@ -1,6 +1,6 @@
 package com.escamilla.flow_tree.security;
 
-import com.escamilla.flow_tree.service.implementation.JwtService;
+import com.escamilla.flow_tree.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
