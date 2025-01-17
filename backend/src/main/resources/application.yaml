@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: Flow-Tree
+    secret-key: ${SECRET_KEY}
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DATABASE_URI}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update;
