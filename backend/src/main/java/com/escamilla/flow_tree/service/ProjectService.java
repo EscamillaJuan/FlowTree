@@ -1,6 +1,7 @@
 package com.escamilla.flow_tree.service;
 
 import com.escamilla.flow_tree.model.entity.Project;
+import com.escamilla.flow_tree.model.entity.Task;
 import com.escamilla.flow_tree.model.entity.User;
 import com.escamilla.flow_tree.model.repository.ProjectRepository;
 import com.escamilla.flow_tree.model.repository.UserRepository;
@@ -46,5 +47,15 @@ public class ProjectService {
 
     public void deleteById(Long projectId) {
         projectRepository.deleteById(projectId);
+    }
+
+    public Project update(Project projectDetails, Project project) {
+        project.setName(projectDetails.getName());
+        project.setDescription(projectDetails.getDescription());
+        project.setCollaborators(projectDetails.getCollaborators());
+        for (Task task: projectDetails.getTasks()) {
+            project.addTask(task);
+        }
+        return projectRepository.save(project);
     }
 }

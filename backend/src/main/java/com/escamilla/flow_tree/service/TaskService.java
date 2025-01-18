@@ -31,7 +31,21 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
-    public List<Task> getByUser(String email) {
-        return taskRepository.findByCreatorEmail(email);
+    public void deleteTask(Long taskId) {
+        taskRepository.deleteById(taskId);
+    }
+
+    public Optional<Task> getById(Long taskId) {
+        if (taskId == null) return Optional.empty();
+        return taskRepository.findById(taskId);
+    }
+
+    public Task update(Task taskDetails, Task task) {
+        task.setName(taskDetails.getName());
+        task.setDescription(taskDetails.getDescription());
+        task.setAssignee(taskDetails.getAssignee());
+        task.setDueDate(taskDetails.getDueDate());
+        task.setStatus(taskDetails.getStatus());
+        return taskRepository.save(task);
     }
 }
