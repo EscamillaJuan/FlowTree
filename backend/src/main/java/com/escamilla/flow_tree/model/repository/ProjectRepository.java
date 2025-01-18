@@ -1,0 +1,11 @@
+package com.escamilla.flow_tree.model.repository;
+
+import com.escamilla.flow_tree.model.entity.Project;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface ProjectRepository extends JpaRepository<Project, Long> {
+    List<Project> findByOwnerEmail(String email);
+}
+

@@ -1,15 +1,22 @@
 meta {
-  name: getProjects
+  name: createProject
   type: http
-  seq: 3
+  seq: 5
 }
 
-get {
+post {
   url: http://localhost:8080/api/v1/projects
-  body: none
+  body: json
   auth: bearer
 }
 
 auth:bearer {
   token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuQGVzY2FtaWxsYS5jb20iLCJpYXQiOjE3MzcxNjIwOTl9.nC6LB4Bc2cdlQ1tuib0Wm8tyxm8PJfZnH7QtlI9Lyjs
+}
+
+body:json {
+  {
+    "name": "second project",
+    "description": "project for testing"
+  }
 }
